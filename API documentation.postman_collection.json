@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "7b7a7681-0371-4b1b-a963-46213b7568f9",
+		"name": "API documentation",
+		"description": "`This API documentation includes five apis. The response format is attached to each api.`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21679081"
+	},
+	"item": [
+		{
+			"name": "Filter Employees by Experience Level",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/employee/experience/filter?minExperience=5&maxExperience=6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employee",
+						"experience",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "minExperience",
+							"value": "5"
+						},
+						{
+							"key": "maxExperience",
+							"value": "6"
+						}
+					]
+				},
+				"description": "Success Response:\n\n{  \n\"status\": true,  \n\"message\": \"Result Listed Successfully\",  \n\"code\": 200,  \n\"data\": \\[  \n{  \n\"id\": 6,  \n\"name\": \"Williams\",  \n\"position\": \"Data Scientist\",  \n\"salary\": 120000,  \n\"joiningDate\": \"2018-06-15\"  \n}  \n\\],  \n\"error\": null  \n}\n\n  \nFailure Reponse:  \n  \n{  \n\"status\": false,  \n\"message\": \\[  \n\"maxExperience must be a positive integer\",  \n\"maxExperience must be an integer\"  \n\\],  \n\"code\": 400,  \n\"error\": {  \n\"name\": \"Bad Request\",  \n\"message\": \\[  \n\"maxExperience must be a positive integer\",  \n\"maxExperience must be an integer\"  \n\\],  \n\"code\": 400  \n},  \n\"data\": null  \n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Average Salary by Position",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/employee/department/salary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employee",
+						"department",
+						"salary"
+					]
+				},
+				"description": "Success:  \n{  \n\"status\": true,  \n\"message\": \"Result Listed Successfully\",  \n\"code\": 200,  \n\"data\": {  \n\"Data Scientist\": 102666.67,  \n\"Project Manager\": 100000,  \n\"Frontend Developer\": 91666.67,  \n\"Backend Developer\": 100000  \n},  \n\"error\": null  \n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Salary Range",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/employee/salary-range/filter?minSalary=100000&maxSalary=1100000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employee",
+						"salary-range",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "minSalary",
+							"value": "100000"
+						},
+						{
+							"key": "maxSalary",
+							"value": "1100000"
+						}
+					]
+				},
+				"description": "Success:  \n{  \n\"status\": true,  \n\"message\": \"Result Listed Successfully\",  \n\"code\": 200,  \n\"data\": \\[  \n{  \n\"id\": 1,  \n\"name\": \"John\",  \n\"position\": \"Data Scientist\",  \n\"salary\": 100000,  \n\"joiningDate\": \"2022-01-15\"  \n},  \n{  \n\"id\": 2,  \n\"name\": \"Jane\",  \n\"position\": \"Project Manager\",  \n\"salary\": 110000,  \n\"joiningDate\": \"2021-05-20\"  \n},  \n{  \n\"id\": 4,  \n\"name\": \"Johnson\",  \n\"position\": \"Backend Developer\",  \n\"salary\": 105000,  \n\"joiningDate\": \"2020-12-05\"  \n},  \n{  \n\"id\": 6,  \n\"name\": \"Williams\",  \n\"position\": \"Data Scientist\",  \n\"salary\": 120000,  \n\"joiningDate\": \"2018-06-15\"  \n}  \n\\],  \n\"error\": null  \n}\n\nHandled Error:\n\n{  \n\"status\": false,  \n\"message\": \"Min Salary must not be greater than Max Salary\",  \n\"code\": 400,  \n\"error\": {  \n\"name\": \"Handle Error\",  \n\"message\": \"Min Salary must not be greater than Max Salary\",  \n\"code\": 400  \n},  \n\"data\": null  \n}\n\n  \nBad Exception:  \n  \n{  \n\"status\": false,  \n\"message\": \\[  \n\"maxSalary must be a positive number\",  \n\"maxSalary must be a number\"  \n\\],  \n\"code\": 400,  \n\"error\": {  \n\"name\": \"Bad Request\",  \n\"message\": \\[  \n\"maxSalary must be a positive number\",  \n\"maxSalary must be a number\"  \n\\],  \n\"code\": 400  \n},  \n\"data\": null  \n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Retension Rate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/employee/retention-rate?startDate=2019-01-01&endDate=2023-12-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employee",
+						"retention-rate"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2019-01-01"
+						},
+						{
+							"key": "endDate",
+							"value": "2023-12-31"
+						}
+					]
+				},
+				"description": "Success:\n\n{  \n\"status\": true,  \n\"message\": \"Result Listed Successfully\",  \n\"code\": 200,  \n\"data\": {  \n\"Data Scientist\": 20,  \n\"Project Manager\": 20,  \n\"Frontend Developer\": 30,  \n\"Backend Developer\": 20  \n},  \n\"error\": null  \n}\n\nError:\n\n  \n\n{  \n\"status\": false,  \n\"message\": \\[  \n\"startDate must be a valid date\",  \n\"startDate should not be empty\",  \n\"endDate must be a valid date\",  \n\"endDate should not be empty\"  \n\\],  \n\"code\": 400,  \n\"error\": {  \n\"name\": \"Bad Request\",  \n\"message\": \\[  \n\"startDate must be a valid date\",  \n\"startDate should not be empty\",  \n\"endDate must be a valid date\",  \n\"endDate should not be empty\"  \n\\],  \n\"code\": 400  \n},  \n\"data\": null  \n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Top Earners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/employee/top-earners?topNumber=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employee",
+						"top-earners"
+					],
+					"query": [
+						{
+							"key": "topNumber",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Success:\n\n{  \n\"status\": true,  \n\"message\": \"Result Listed Successfully\",  \n\"code\": 200,  \n\"data\": \\[  \n{  \n\"id\": 6,  \n\"name\": \"Williams\",  \n\"position\": \"Data Scientist\",  \n\"salary\": 120000,  \n\"joiningDate\": \"2018-06-15\"  \n},  \n{  \n\"id\": 2,  \n\"name\": \"Jane\",  \n\"position\": \"Project Manager\",  \n\"salary\": 110000,  \n\"joiningDate\": \"2021-05-20\"  \n}  \n\\],  \n\"error\": null  \n}\n\nError:  \n  \n{  \n\"status\": false,  \n\"message\": \\[  \n\"N must be a positive integer\",  \n\"N must be an integer\",  \n\"topNumber should not be empty\"  \n\\],  \n\"code\": 400,  \n\"error\": {  \n\"name\": \"Bad Request\",  \n\"message\": \\[  \n\"N must be a positive integer\",  \n\"N must be an integer\",  \n\"topNumber should not be empty\"  \n\\],  \n\"code\": 400  \n},  \n\"data\": null  \n}"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://farming-simulator.pstmn.io"
+		}
+	]
+}
